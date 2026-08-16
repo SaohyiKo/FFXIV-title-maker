@@ -12,7 +12,14 @@
 
 网站主要面向中文用户，同时必须保持独立的英文罗马衬线方案。它既能导出透明标题素材，也能让用户本地载入图片并合成完整画面。所有字体和图片只在浏览器中处理，不上传、不保存。
 
-计划中的公开部署路径是 GitHub 公开仓库加 Cloudflare Pages；截至本次交接尚未执行公开部署。
+项目已经推送到 GitHub，并通过 Cloudflare Pages 自动部署：
+
+- GitHub 仓库：[`SaohyiKo/FFXIV-title-maker`](https://github.com/SaohyiKo/FFXIV-title-maker)
+- Git 远程地址：`git@github.com:SaohyiKo/FFXIV-title-maker.git`
+- 生产网站：<https://ffxiv-title-maker.pages.dev>
+- 发布分支：`main`
+
+Cloudflare Pages 已连接该仓库。后续不需要手动上传 `dist/`：完成修改并验证后，只要将提交推送到远程仓库的 `main` 分支，Cloudflare 就会自动构建并更新上述生产网址。
 
 ## 已经完成的功能
 
@@ -79,13 +86,14 @@
 
 ## 当前工作区状态
 
-- Git 分支：`main`。
-- 当前 HEAD：`d3e4398 feat: build FFXIV duty title maker`。
-- 当前实现包含大量尚未提交的修改和两个新增源码文件；它们都是本轮功能迭代成果，不是垃圾文件。
+- Git 分支：`main`，跟踪 `origin/main`。
+- Git 远程：`origin = git@github.com:SaohyiKo/FFXIV-title-maker.git`。
+- 当前完整功能基线已经以提交 `aa897f1 feat: refine bilingual titles and image compositing` 推送到远程 `main`。
+- GitHub 与 Cloudflare Pages 已连通，生产网址为 <https://ffxiv-title-maker.pages.dev>。
 - 交接前已执行 `pnpm test`：3 个测试文件、19 项测试全部通过。
 - 交接前已执行 `pnpm build`：TypeScript 检查和 Vite 生产构建通过。
-- 没有正在运行的开发服务器，也没有已执行的 GitHub 或 Cloudflare 部署。
-- 新会话开始后应先运行 `git status --short`，但绝对不要使用 `git reset --hard`、`git checkout --`、`git clean` 或其他会丢弃工作区内容的命令。
+- 没有正在运行的开发服务器；本地 `README_OWNER.md` 仍被 `.gitignore` 排除，不会上传到 GitHub。
+- 新会话开始后应先运行 `git status --short --branch`，确认本地与 `origin/main` 的关系；如果有未提交内容，绝对不要使用 `git reset --hard`、`git checkout --`、`git clean` 或其他会丢弃工作区内容的命令。
 
 ## 当前卡在哪里
 
@@ -100,9 +108,9 @@
 3. 如再次处理红线，只对中文版暗部颜色或单个合成层做最小改动，并确认金属高光、浮雕高度和上亮下暗渐变没有退化。
 4. 为中文版关键颜色、上下亮度关系和横线下沿增加可重复的像素测试或浏览器截图回归。
 5. 补足本地字体实际加载、损坏文件、连续替换背景和真实 PNG/JPG 导出的浏览器级验证。
-6. 用户确认视觉定稿后，把当前大量未提交改动整理成清晰提交；提交前再次运行测试和生产构建。
-7. 创建 GitHub 公开仓库并检查公开内容：不得包含 Adobe 字体、用户图片或 `README_OWNER.md`。
-8. 最后连接 Cloudflare Pages：`main` 分支、构建命令 `npm run build`、输出目录 `dist`。
+6. 每次准备发布前，同步更新公开 README 的字体设计说明，运行测试和生产构建，并把改动整理成清晰提交。
+7. 推送提交到 `origin/main`；Cloudflare Pages 会自动构建并发布，不要手动提交或上传 `dist/`。
+8. 推送后打开 <https://ffxiv-title-maker.pages.dev> 验证线上版本。公开内容不得包含 Adobe 字体、用户图片或 `README_OWNER.md`。
 
 ## 踩过的坑：绝对不要再踩
 
