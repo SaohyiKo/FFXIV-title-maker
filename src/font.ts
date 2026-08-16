@@ -37,8 +37,7 @@ export async function waitForBundledFonts(hasLocalFont: boolean): Promise<void> 
     ? `"${LOCAL_CHINESE_FONT_FAMILY}"`
     : '"Noto Sans SC"';
   await Promise.all([
-    document.fonts.load(`400 72px ${chineseFamily}`, "创造环境"),
-    document.fonts.load('400 92px "Cinzel"', "THE SKYDEEP CENOTE"),
+    document.fonts.load(`400 72px ${chineseFamily}`, "末日暗影亚马乌罗提"),
+    document.fonts.load('400 92px "Cinzel"', "NORVRANDT AMAUROTA"),
   ]);
 }
-
