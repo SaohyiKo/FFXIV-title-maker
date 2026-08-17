@@ -204,8 +204,8 @@ app.innerHTML = `
   </main>
 
   <footer>
-    <p>非官方工具，与 Square Enix 无关联。FINAL FANTASY XIV 为其权利人的商标。</p>
-    <p>所有文字、字体与图片均在你的浏览器中处理。——by ykftj@旅人栈桥</p>
+    <p>非官方工具，与 Square Enix 无关联。FINAL FANTASY XIV 为其权利人的商标。所有文字、字体与图片均在你的浏览器中处理。</p>
+    <p>——by 一口枫糖浆@旅人栈桥 / B站相关视频bv号：BV1HzbR6KEdV</p>
   </footer>
 `;
 
